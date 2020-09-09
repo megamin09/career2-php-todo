@@ -1,0 +1,27 @@
+/* body {
+
+    background: linear-gradient(-45deg, rgba(246, 255, 0, .8), rgba(255, 0, 161, .8)) fixed, url(http://www.webcreatorbox.com/sample/images/bg-cherrybrossam.jpg) fixed;
+    background-size: cover;
+    text-align: center;
+}
+  
+  div {
+    margin: 120px 0;
+    text-align: center;
+  }
+
+  .fuchidori {
+    font-size: 200%;
+    color: #000000;
+    text-shadow:1px 1px 0 #FFF, -1px -1px 0 #FFF,
+    -1px 1px 0 #FFF, 1px -1px 0 #FFF,
+    0px 1px 0 #FFF,  0-1px 0 #FFF,
+    -1px 0 0 #FFF, 1px 0 0 #FFF;
+
+  } */
+
+  h1
+  {
+    text-align: center;
+    margin-left: 10px auto;
+  } 
