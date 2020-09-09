@@ -1,8 +1,8 @@
 <?php
- 
+
 use Phpmig\Migration\Migration;
 
-class CreateThread extends Migration
+class CreateTodo extends Migration
 {
     /**
      * Do the migration
@@ -10,14 +10,15 @@ class CreateThread extends Migration
     public function up()
     {
         $sql = <<<EOT
-CREATE TABLE IF NOT EXISTS `thread` (
+CREATE TABLE IF NOT EXISTS `todo` (
 `id` int(11) AUTO_INCREMENT,
-`name` varchar(255) NOT NULL,
-`content` varchar(255) NOT NULL,
+`title` varchar(255) NOT NULL,
+`due_date` DATE NOT NULL,
+`status` tinyint(1) NOT NULL DEFAULT 0,
 `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 `deleted_at` DATETIME DEFAULT NULL,
 PRIMARY KEY (`id`)
-) DEFAULT CHARSET=utf8;
+) DEFAULT CHARSET=utf8mb4;
 EOT;
         $container = $this->getContainer();
         $container['db']->query($sql);
@@ -28,7 +29,7 @@ EOT;
      */
     public function down()
     {
-        $sql = "DROP TABLE `thread`;";
+        $sql = "DROP TABLE `todo`;";
         $container = $this->getContainer();
         $container['db']->query($sql);
     }
