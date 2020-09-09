@@ -16,3 +16,11 @@
         作成日      created_at  DATE型 + flag
         削除日      delete_at   DATE型 + NULL
         進捗        statas      0:未着手 1:作業中 2:完了 3:期限切れ
+
+        'id' int(11) AUTO_INCREMENT "ID",
+        'title' varchar(255) NOT NULL "タイトル",
+        'due_date' DATE NOT NULL "期限",
+        'status' tinyint(1) NOT NULL DEFAULT 0　"進捗",
+        'created_at' DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP "作成日",
+        'deleted_at' DATETIME DEFAULT NULL "削除日",
+        PRIMARY KEY ('id')
