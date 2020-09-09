@@ -6,6 +6,9 @@ $todo = new Todo();
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $todo->post($_POST['title'], $_POST['due_date']);
 }
+
+$todo_list = $todo->getList();
+var_dump($todo_list);
 ?>
 
 <html>
