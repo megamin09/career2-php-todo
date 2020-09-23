@@ -73,7 +73,7 @@ class Todo
         $stmt = $this->dbh->prepare($sql);                          //sqlの実行準備
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);               //データのセット バインドすることによって不正なワードを受け付けないようにする
         $stmt->bindParam(':status', $status, PDO::PARAM_INT);       //データのセット
-        $stmt->execute();                                           //更新
+        $stmt->execute();                                           //更新 
     }
 
 }
