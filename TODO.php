@@ -71,7 +71,7 @@ class Todo
     {
         $sql = "UPDATE `todo` SET status = :status WHERE id = :id"; //指定したidのデータを取得
         $stmt = $this->dbh->prepare($sql);                          //sqlの実行準備
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);               //データのセット
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);               //データのセット バインドすることによって不正なワードを受け付けないようにする
         $stmt->bindParam(':status', $status, PDO::PARAM_INT);       //データのセット
         $stmt->execute();                                           //更新
     }
