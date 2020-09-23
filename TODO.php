@@ -61,4 +61,19 @@ class Todo
         $stmt->execute();
     }
 
+
+    /**
+     * 進捗を更新する
+     * @param string $id
+     * @param string $status
+     */
+    public function update(int $id, int $status)
+    {
+        $sql = "UPDATE `todo` SET status = :status WHERE id = :id"; //指定したidのデータを取得
+        $stmt = $this->dbh->prepare($sql);                          //sqlの実行準備
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);               //データのセット
+        $stmt->bindParam(':status', $status, PDO::PARAM_INT);       //データのセット
+        $stmt->execute();                                           //更新
+    }
+
 }
