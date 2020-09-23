@@ -4,7 +4,16 @@ require_once './todo.php';
 $todo = new Todo();
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $todo->post($_POST['title'], $_POST['due_date']);
+    if (isset($_POST["method"]) && $_POST["method"] === "DELETE") {
+        $todo->delete();
+    } else {
+        $todo->post($_POST['title'], $_POST['due_date']);
+    }
+
+    // ブラウザのリロード対策
+    $redirect_url = $_SERVER['HTTP_REFERER'];
+    header("Location: $redirect_url");
+    exit;
 }
 
 // $todo_list = $todo->getList();

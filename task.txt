@@ -24,3 +24,11 @@
         'created_at' DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP "作成日",
         'deleted_at' DATETIME DEFAULT NULL "削除日",
         PRIMARY KEY ('id')
+
+
+3. タスクの削除
+    a.全削除ボタンの設置
+    b.進捗の更新
+
+4. 進捗の更新
+
