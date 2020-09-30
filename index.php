@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
     else 
     {
-        $todo->post($_POST['title'], $_POST['due_date']);
+        $todo->post($_POST['title'], $_POST['due_date'], $_FILES['image']);
     }
 
     // ブラウザのリロード対策
@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <body class = "fuchidori">
 
         <style type="text/css">
-        body,td,th {font-family:"ほのかアンティーク角","ＭＳ Ｐゴシック", "Osaka", "ヒラギノ角ゴ Pro W3";font-size:14px;color: #00f;  text-stroke: 1px #000;
+        body,td,th {font-family:"ほのかアンティーク角","ＭＳ Ｐゴシック", "Osaka", "ヒラギノ角ゴ Pro W3";font-size:14px;color: #05A;  text-stroke: 1px #000;
         }
         </style>
         </head>
@@ -61,15 +61,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <h1>TODO App<h1>
 
         <h2>TODO作成</h2>
-        <form method="POST" action="<?php print($_SERVER['PHP_SELF']) ?>">
+        <form method="POST" enctype="multipart/form-data"  action="<?php print($_SERVER['PHP_SELF']) ?>">
             <div class="form-group">
                 <label for="title">タスク名</label>
                 <input type="text" class="form-control" name="title" id="title" placeholder="タスク名" required>
             </div>
+            
             <div class="form-group">
                 <label for="due_date">期限</label>
                 <input type="text" class="form-control" name="due_date" id="due_date" required>
+            
             </div>
+                
+            <div class = "form-group">
+                <label for="exeample">アップロード画像</label>
+                <input type="file" class = "form-control" name="image">
+            </div>
+            
             <input type="hidden" name="token" value="<?php echo $_SESSION['token']; ?>">
             <input class="btn btn-primary"  type="submit" name="btn" value="TODOを作成する">
         </form>
