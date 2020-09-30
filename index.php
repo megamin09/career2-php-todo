@@ -89,6 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <th>期限</th>
                 <th>状態</th>
                 <th>更新</th>
+                <th>削除</th>
             </tr>
             </thead>
             <tbody>
@@ -115,6 +116,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             <input type="hidden" name="method" value="UPDATE">
                             <input type="hidden" name="todo_id" value="<?=$todo["id"]; ?>">
                             <button class="btn btn-primary" type="submit">変更</button>
+                        </td>
+                        <td>
+                            <input type="hidden" name="method" value="DELETE">
+                            <input type="hidden" name="todo_id" value="<?=$todo["id"]; ?>">
+                            <button class="btn btn-danger" type="submit">削除</button>
                         </td>
                     </form>
                 </tr>
