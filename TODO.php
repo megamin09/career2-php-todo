@@ -57,9 +57,10 @@ class Todo
             move_uploaded_file($image_file['tmp_name'], './image/' . $image);
         }
 
-        $stmt = $this->dbh->prepare("INSERT INTO `todo` (title, due_date) VALUES (:title, :due_date)");
+        $stmt = $this->dbh->prepare("INSERT INTO `todo` (title, due_date, image) VALUES (:title, :due_date, :image)");
         $stmt->bindParam(':title', $title, PDO::PARAM_STR);
         $stmt->bindParam(':due_date', $due_date, PDO::PARAM_STR);
+        $stmt->bindParam(':image', $image, PDO::PARAM_STR);
         $stmt->execute();
     }
 

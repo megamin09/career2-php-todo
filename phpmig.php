@@ -12,7 +12,7 @@ $dotenv->load();
 $container = new Container();
 
 $container['db'] = function () {
-    $dbh = new PDO('mysql:dbname='.$_ENV['DB_NAME'].';host=127.0.0.1', $_ENV['DB_USER'], $_ENV['DB_PASSWORD']);
+    $dbh = new PDO('mysql:dbname='.$_ENV['DB_NAME'].';host=127.0.0.1;port=8111', $_ENV['DB_USER'], $_ENV['DB_PASSWORD']);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     return $dbh;
 };
