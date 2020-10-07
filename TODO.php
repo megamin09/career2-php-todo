@@ -32,7 +32,7 @@ class Todo
      */
     public function getList()
     {
-        $stmt = $this->dbh->query("SELECT * FROM `todo` WHERE `deleted_at` IS NULL ORDER BY `due_date` ASC");
+        $stmt = $this->dbh->query("SELECT id, title, due_date, image, created_at, deleted_at FROM `todo` WHERE `deleted_at` IS NULL ORDER BY `due_date` ASC");
         return array_map(function ($todo) {
             $todo["status"] = intval($todo["status"]);
             $todo["status_for_display"] = self::STATUS[$todo["status"]];

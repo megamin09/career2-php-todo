@@ -98,6 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <thead>
             <tr>
                 <th>タイトル</th>
+                <th>画像</th>
                 <th>期限</th>
                 <th>状態</th>
                 <th>更新</th>
@@ -111,6 +112,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <tr>
                     <form method="POST" action="<?php print($_SERVER['PHP_SELF']) ?>">
                         <td><?=$todo['title']; ?></td>
+                        <td>
+                            <?php
+                                if (isset($todo['image'])) 
+                                {
+                                    $image = $todo['image'];
+                                    echo "<img src='image/$image'; width='50'/>";
+                                }
+                                else 
+                                {
+                                    echo "---";
+                                }
+                            ?>
+                        </td>
                         <td><?=$todo['due_date']; ?></td>
                         <td class="label">
                             <label>
